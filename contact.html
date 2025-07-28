@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Devis - Reverclim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c4463',
+                        secondary: '#db5305',
+                        accent: '#aebbd0',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'slide-down': 'slideDown 0.3s ease-out',
+                    },
+                    keyframes: {
+                        'fadeIn': {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'slideDown': {
+                            '0%': { 
+                                opacity: '0', 
+                                transform: 'translateY(-100%)' 
+                            },
+                            '100%': { 
+                                opacity: '1', 
+                                transform: 'translateY(0)' 
+                            },
+                        }
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(135deg, rgba(44, 68, 99, 0.95) 0%, rgba(44, 68, 99, 0.8) 50%, rgba(71, 85, 105, 0.7) 100%)',
+                        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                        'glow-orange': '0 0 20px rgba(219, 83, 5, 0.3)',
+                        'glow-orange-lg': '0 0 40px rgba(219, 83, 5, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gray-900 min-h-screen scroll-smooth">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-primary/30 backdrop-blur-md text-white shadow-lg border border-primary/40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300">
+                <div class="w-12 h-12 rounded-full overflow-hidden mr-3 shadow-lg">
+                    <img src="./images/logo.png" alt="Reverclim Logo" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-xl font-bold">Reverclim</h1>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#accueil" class="hover:text-secondary transition-all duration-300 relative group">
+                    Accueil
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#services" class="hover:text-secondary transition-all duration-300 relative group">
+                    Services
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#marques" class="hover:text-secondary transition-all duration-300 relative group">
+                    Marques
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#qualifications" class="hover:text-secondary transition-all duration-300 relative group">
+                    Qualifications
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#realisations" class="hover:text-secondary transition-all duration-300 relative group">
+                    Réalisations
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#contact" class="hover:text-secondary transition-all duration-300 relative group">
+                    Contact
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+            
+            <div class="flex items-center">
+                <a href="tel:+33767585057" class="hidden md:block mr-4 hover:text-secondary transition-all duration-300">
+                    <i class="fas fa-phone mr-2"></i>07 67 58 50 57
+                </a>
+                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 inline-block">
+                    Demander un devis
+                </a>
+                <button id="mobile-menu-button" class="md:hidden ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="md:hidden bg-primary/95 backdrop-blur-md border-t border-white/20 hidden">
+            <div class="container mx-auto px-4 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html#accueil" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-home mr-3"></i>Accueil
+                    </a>
+                    <a href="services.html" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-cog mr-3"></i>Services
+                    </a>
+                    <a href="index.html#marques" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-star mr-3"></i>Marques
+                    </a>
+                    <a href="index.html#qualifications" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-certificate mr-3"></i>Qualifications
+                    </a>
+                    <a href="index.html#realisations" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-image mr-3"></i>Réalisations
+                    </a>
+                    <a href="#contact" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                    <a href="tel:+33767585057" class="text-white hover:text-secondary transition-all duration-300 py-2">
+                        <i class="fas fa-phone mr-3"></i>07 67 58 50 57
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-24 bg-gradient-to-br from-primary via-slate-800 to-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/10 to-transparent"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+                Contact & Devis
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200">
+                Obtenez votre devis gratuit et personnalisé en quelques minutes
+            </p>
+            <div class="h-1 w-32 bg-gradient-to-r from-secondary via-orange-400 to-secondary mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-12 md:py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                
+                <!-- Contact Form -->
+                <div class="relative order-1 lg:order-1">
+                    <div class="bg-white/90 md:bg-white/5 backdrop-blur-sm border border-gray-200 md:border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl md:shadow-2xl">
+                        <div class="mb-6 md:mb-8">
+                            <h2 class="text-2xl md:text-4xl font-bold text-primary mb-3 md:mb-4">Demande de devis</h2>
+                            <p class="text-gray-600 text-sm md:text-base">Remplissez ce formulaire pour recevoir votre devis gratuit sous 24h</p>
+                        </div>
+
+                        <form class="space-y-4 md:space-y-6">
+                            <!-- Informations personnelles -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                                <div class="space-y-2">
+                                    <label for="prenom" class="flex items-center text-primary text-sm font-medium">
+                                        <i class="fas fa-user mr-2 text-secondary"></i>Prénom *
+                                    </label>
+                                    <input type="text" id="prenom" name="prenom" required 
+                                           class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400"
+                                           placeholder="Votre prénom">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="nom" class="flex items-center text-primary text-sm font-medium">
+                                        <i class="fas fa-user mr-2 text-secondary"></i>Nom *
+                                    </label>
+                                    <input type="text" id="nom" name="nom" required 
+                                           class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400"
+                                           placeholder="Votre nom">
+                                </div>
+                            </div>
+
+                            <!-- Contact -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                                <div class="space-y-2">
+                                    <label for="email" class="flex items-center text-primary text-sm font-medium">
+                                        <i class="fas fa-envelope mr-2 text-secondary"></i>Email *
+                                    </label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400"
+                                           placeholder="votre@email.com">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="telephone" class="flex items-center text-primary text-sm font-medium">
+                                        <i class="fas fa-phone mr-2 text-secondary"></i>Téléphone *
+                                    </label>
+                                    <input type="tel" id="telephone" name="telephone" required 
+                                           class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400"
+                                           placeholder="06 12 34 56 78">
+                                </div>
+                            </div>
+
+                            <!-- Adresse -->
+                            <div class="space-y-2">
+                                <label for="adresse" class="flex items-center text-primary text-sm font-medium">
+                                    <i class="fas fa-map-marker-alt mr-2 text-secondary"></i>Adresse du projet *
+                                </label>
+                                <input type="text" id="adresse" name="adresse" required 
+                                       class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400"
+                                       placeholder="Adresse complète du projet">
+                            </div>
+
+                            <!-- Type de service -->
+                            <div class="space-y-2">
+                                <label for="service" class="flex items-center text-primary text-sm font-medium">
+                                    <i class="fas fa-tools mr-2 text-secondary"></i>Type de service *
+                                </label>
+                                <select id="service" name="service" required 
+                                        class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400 cursor-pointer">
+                                    <option value="" class="bg-white">Sélectionnez un service</option>
+                                    <option value="climatisation" class="bg-white">Climatisation</option>
+                                    <option value="pompe-chaleur" class="bg-white">Pompe à chaleur</option>
+                                    <option value="photovoltaique" class="bg-white">Photovoltaïque</option>
+                                    <option value="entretien" class="bg-white">Entretien & Dépannage</option>
+                                    <option value="autre" class="bg-white">Autre</option>
+                                </select>
+                            </div>
+
+                            <!-- Type de logement -->
+                            <div class="space-y-3">
+                                <label class="flex items-center text-primary text-sm font-medium">
+                                    <i class="fas fa-home mr-2 text-secondary"></i>Type de logement *
+                                </label>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                                    <label class="group cursor-pointer">
+                                        <input type="radio" name="logement" value="maison" class="sr-only peer">
+                                        <div class="radio-custom bg-white border-2 border-gray-300 rounded-xl p-3 md:p-4 text-center hover:border-secondary hover:bg-gray-50 transition-all duration-300 h-20 md:h-24 w-full flex flex-col items-center justify-center peer-checked:bg-secondary peer-checked:border-secondary">
+                                            <i class="fas fa-home peer-checked:text-white text-xl md:text-2xl mb-1 md:mb-2 transition-colors duration-300"></i>
+                                            <p class="peer-checked:text-white text-xs md:text-sm font-medium transition-colors duration-300">Maison</p>
+                                        </div>
+                                    </label>
+                                    <label class="group cursor-pointer">
+                                        <input type="radio" name="logement" value="appartement" class="sr-only peer">
+                                        <div class="radio-custom bg-white border-2 border-gray-300 rounded-xl p-3 md:p-4 text-center hover:border-secondary hover:bg-gray-50 transition-all duration-300 h-20 md:h-24 w-full flex flex-col items-center justify-center peer-checked:bg-secondary peer-checked:border-secondary">
+                                            <i class="fas fa-building peer-checked:text-white text-xl md:text-2xl mb-1 md:mb-2 transition-colors duration-300"></i>
+                                            <p class="peer-checked:text-white text-xs md:text-sm font-medium transition-colors duration-300">Appartement</p>
+                                        </div>
+                                    </label>
+                                    <label class="group cursor-pointer">
+                                        <input type="radio" name="logement" value="bureau" class="sr-only peer">
+                                        <div class="radio-custom bg-white border-2 border-gray-300 rounded-xl p-3 md:p-4 text-center hover:border-secondary hover:bg-gray-50 transition-all duration-300 h-20 md:h-24 w-full flex flex-col items-center justify-center peer-checked:bg-secondary peer-checked:border-secondary">
+                                            <i class="fas fa-briefcase peer-checked:text-white text-xl md:text-2xl mb-1 md:mb-2 transition-colors duration-300"></i>
+                                            <p class="peer-checked:text-white text-xs md:text-sm font-medium transition-colors duration-300">Bureau</p>
+                                        </div>
+                                    </label>
+                                    <label class="group cursor-pointer">
+                                        <input type="radio" name="logement" value="commerce" class="sr-only peer">
+                                        <div class="radio-custom bg-white border-2 border-gray-300 rounded-xl p-3 md:p-4 text-center hover:border-secondary hover:bg-gray-50 transition-all duration-300 h-20 md:h-24 w-full flex flex-col items-center justify-center peer-checked:bg-secondary peer-checked:border-secondary">
+                                            <i class="fas fa-store peer-checked:text-white text-xl md:text-2xl mb-1 md:mb-2 transition-colors duration-300"></i>
+                                            <p class="peer-checked:text-white text-xs md:text-sm font-medium transition-colors duration-300">Commerce</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Surface et Budget sur la même ligne en desktop -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                                <!-- Surface -->
+                                <div class="space-y-2">
+                                    <label for="surface" class="flex items-center text-primary text-sm font-medium">
+                                        <i class="fas fa-ruler-combined mr-2 text-secondary"></i>Surface (m²)
+                                    </label>
+                                    <input type="number" id="surface" name="surface" 
+                                           class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400"
+                                           placeholder="Ex: 100">
+                                </div>
+
+                                <!-- Budget -->
+                                <div class="space-y-2">
+                                    <label for="budget" class="flex items-center text-primary text-sm font-medium">
+                                        <i class="fas fa-euro-sign mr-2 text-secondary"></i>Budget approximatif
+                                    </label>
+                                    <select id="budget" name="budget" 
+                                            class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 text-sm md:text-base hover:border-gray-400 cursor-pointer">
+                                        <option value="" class="bg-white">Sélectionnez votre budget</option>
+                                        <option value="moins-5000" class="bg-white">Moins de 5 000€</option>
+                                        <option value="5000-10000" class="bg-white">5 000€ - 10 000€</option>
+                                        <option value="10000-20000" class="bg-white">10 000€ - 20 000€</option>
+                                        <option value="20000-50000" class="bg-white">20 000€ - 50 000€</option>
+                                        <option value="plus-50000" class="bg-white">Plus de 50 000€</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="space-y-2">
+                                <label for="message" class="flex items-center text-primary text-sm font-medium">
+                                    <i class="fas fa-comment mr-2 text-secondary"></i>Détails du projet
+                                </label>
+                                <textarea id="message" name="message" rows="4" 
+                                          class="w-full px-3 py-3 md:px-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300 resize-none text-sm md:text-base hover:border-gray-400"
+                                          placeholder="Décrivez votre projet en détail..."></textarea>
+                            </div>
+
+                            <!-- Consentement -->
+                            <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                                <input type="checkbox" id="rgpd" name="rgpd" required 
+                                       class="mt-1 w-4 h-4 text-secondary bg-white border-gray-300 rounded focus:ring-secondary focus:ring-2 flex-shrink-0 cursor-pointer">
+                                <label for="rgpd" class="text-xs md:text-sm text-gray-600 cursor-pointer">
+                                    J'accepte que mes données personnelles soient utilisées pour traiter ma demande de devis. 
+                                    <a href="#" class="text-secondary hover:underline font-medium">Politique de confidentialité</a>
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-secondary to-orange-400 text-white py-3 md:py-4 px-6 md:px-8 rounded-xl font-bold text-base md:text-lg hover:shadow-glow-orange-lg hover:scale-105 transition-all duration-300 shadow-glow-orange animate-pulse-glow group">
+                                <i class="fas fa-paper-plane mr-2 group-hover:animate-bounce"></i>
+                                <span class="hidden sm:inline">Envoyer ma demande de devis</span>
+                                <span class="sm:hidden">Envoyer le devis</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-6 md:space-y-8 order-2 lg:order-2">
+                    <!-- Contact Direct -->
+                    <div class="bg-white/95 backdrop-blur-sm border border-gray-200 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl md:shadow-2xl">
+                        <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4 md:mb-6">
+                            <i class="fas fa-headset text-secondary mr-2 md:mr-3"></i>Contact Direct
+                        </h3>
+                        
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="bg-gradient-to-r from-secondary to-orange-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-white text-sm md:text-base"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-xs md:text-sm">Téléphone</p>
+                                    <a href="tel:+33767585057" class="text-primary text-base md:text-lg font-semibold hover:text-secondary transition-colors">
+                                        07 67 58 50 57
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="bg-gradient-to-r from-secondary to-orange-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white text-sm md:text-base"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-xs md:text-sm">Email</p>
+                                    <a href="mailto:contact@reverclim.fr" class="text-primary text-base md:text-lg font-semibold hover:text-secondary transition-colors break-all">
+                                        contact@reverclim.fr
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="bg-gradient-to-r from-secondary to-orange-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white text-sm md:text-base"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-xs md:text-sm">Zone d'intervention</p>
+                                    <p class="text-primary text-base md:text-lg font-semibold">Loire (42)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="bg-gradient-to-r from-secondary to-orange-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-white text-sm md:text-base"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-xs md:text-sm">Horaires</p>
+                                    <p class="text-primary text-base md:text-lg font-semibold">Lun-Ven: 8h-18h</p>
+                                    <p class="text-primary text-sm">Sam: 9h-18h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pourquoi nous choisir -->
+                    <div class="bg-white/95 backdrop-blur-sm border border-gray-200 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl md:shadow-2xl">
+                        <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4 md:mb-6">
+                            <i class="fas fa-star text-secondary mr-2 md:mr-3"></i>Pourquoi nous choisir ?
+                        </h3>
+                        
+                        <div class="space-y-3 md:space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-secondary flex-shrink-0"></i>
+                                <span class="text-primary text-sm md:text-base">Devis gratuit sous 24h</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-secondary flex-shrink-0"></i>
+                                <span class="text-primary text-sm md:text-base">Équipe certifiée RGE</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-secondary flex-shrink-0"></i>
+                                <span class="text-primary text-sm md:text-base">Garantie de 2 ans</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-secondary flex-shrink-0"></i>
+                                <span class="text-primary text-sm md:text-base">Service après-vente</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-secondary flex-shrink-0"></i>
+                                <span class="text-primary text-sm md:text-base">Financement possible</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-secondary flex-shrink-0"></i>
+                                <span class="text-primary text-sm md:text-base">Aides et subventions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Urgence -->
+                    <div class="bg-gradient-to-r from-secondary to-orange-400 rounded-2xl md:rounded-3xl p-6 md:p-8 text-center">
+                        <i class="fas fa-exclamation-triangle text-white text-3xl md:text-4xl mb-3 md:mb-4"></i>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Urgence ?</h4>
+                        <p class="text-white mb-4 md:mb-6 text-sm md:text-base">Pour toute urgence, contactez-nous directement</p>
+                        <a href="tel:+33767585057" 
+                           class="bg-white text-secondary py-2 md:py-3 px-4 md:px-6 rounded-xl font-bold hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block text-sm md:text-base">
+                            <i class="fas fa-phone mr-2"></i>Appeler maintenant
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-primary via-primary/95 to-primary py-8 md:py-12 relative z-10 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Logo & Description -->
+                <div class="col-span-1 sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-4 md:mb-6">
+                        <div class="bg-gradient-to-r from-secondary to-orange-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mr-2 md:mr-3 shadow-lg shadow-secondary/50">
+                            <i class="fas fa-snowflake text-white text-lg md:text-xl"></i>
+                        </div>
+                        <h2 class="text-lg md:text-xl font-bold">Reverclim</h2>
+                    </div>
+                    <p class="text-accent mb-4 md:mb-6 text-sm md:text-base">Experts en climatisation, pompes à chaleur, entretien et solutions photovoltaïques.</p>
+                    <div class="flex space-x-3 md:space-x-4">
+                        <a href="https://www.facebook.com/reverclim/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-facebook-f text-sm md:text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/reverclim.42/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-instagram text-sm md:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h3 class="text-base md:text-lg font-bold mb-4 md:mb-6">Nos Services</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="services.html#climatisation" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center text-sm md:text-base"><i class="fas fa-snowflake mr-2 text-secondary text-sm"></i>Climatisation</a></li>
+                        <li><a href="services.html#pompes-chaleur" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center text-sm md:text-base"><i class="fas fa-thermometer-half mr-2 text-secondary text-sm"></i>Pompes à chaleur</a></li>
+                        <li><a href="services.html#entretien-depannage" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center text-sm md:text-base"><i class="fas fa-tools mr-2 text-secondary text-sm"></i>Entretien & Réparation</a></li>
+                        <li><a href="services.html#photovoltaique" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center text-sm md:text-base"><i class="fas fa-solar-panel mr-2 text-secondary text-sm"></i>Solutions Photovoltaïques</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Mentions Légales -->
+                <div>
+                    <h3 class="text-base md:text-lg font-bold mb-4 md:mb-6">Mentions Légales</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="mentions-legales.html" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 text-sm md:text-base">Mentions légales</a></li>
+                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 text-sm md:text-base">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 text-sm md:text-base">CGV</a></li>
+                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 text-sm md:text-base">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="col-span-1 sm:col-span-2 lg:col-span-1">
+                    <h3 class="text-base md:text-lg font-bold mb-4 md:mb-6">Newsletter</h3>
+                    <p class="text-accent mb-3 md:mb-4 text-sm md:text-base">Abonnez-vous pour recevoir nos actualités et conseils.</p>
+                    <form class="flex flex-col sm:flex-row">
+                        <input type="email" placeholder="Votre email" class="bg-white/15 backdrop-blur-sm border border-white/20 px-3 py-2 md:px-4 md:py-2 rounded-lg sm:rounded-l-lg sm:rounded-r-none w-full focus:outline-none focus:ring-2 focus:ring-secondary placeholder:text-accent text-white text-sm md:text-base mb-2 sm:mb-0">
+                        <button class="bg-gradient-to-r from-secondary to-orange-400 px-3 py-2 md:px-4 md:py-2 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 text-sm md:text-base">
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="ml-2 sm:hidden">S'abonner</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-accent">
+                <p class="text-sm md:text-base">&copy; 2024 Reverclim. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Validation du formulaire avec feedback visuel
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.classList.add('border-green-500', 'bg-green-50');
+                        this.classList.remove('border-red-500', 'bg-red-50');
+                    } else if (this.value) {
+                        this.classList.add('border-red-500', 'bg-red-50');
+                        this.classList.remove('border-green-500', 'bg-green-50');
+                    }
+                });
+                
+                input.addEventListener('input', function() {
+                    this.classList.remove('border-red-500', 'bg-red-50', 'border-green-500', 'bg-green-50');
+                });
+            });
+        });
+
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('i');
+
+        mobileMenuButton.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Fermer le menu quand on redimensionne l'écran (passage en desktop)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+</html>

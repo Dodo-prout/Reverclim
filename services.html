@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - Reverclim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c4463',
+                        secondary: '#db5305',
+                        accent: '#aebbd0',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'gradient-shift': 'gradientShift 3s ease infinite',
+                    },
+                    keyframes: {
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'gradientShift': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    },
+                    scrollMargin: {
+                        '100': '100px',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // Script amélioré pour gérer la navigation vers les sections
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Fonction pour faire défiler vers une section avec offset
+            function scrollToSection(targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const headerHeight = 100; // Hauteur du header + marge
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
+            // Gérer l'ancre dans l'URL au chargement de la page
+            if (window.location.hash) {
+                setTimeout(function() {
+                    const targetId = window.location.hash.substring(1);
+                    scrollToSection(targetId);
+                }, 300); // Délai plus long pour s'assurer que la page est chargée
+            }
+            
+            // Gérer les clics sur les liens d'ancre
+            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    scrollToSection(targetId);
+                    
+                    // Mettre à jour l'URL sans recharger la page
+                    history.pushState(null, null, '#' + targetId);
+                });
+            });
+            
+            // Gérer le bouton retour du navigateur
+            window.addEventListener('popstate', function() {
+                if (window.location.hash) {
+                    const targetId = window.location.hash.substring(1);
+                    scrollToSection(targetId);
+                }
+            });
+        });
+    </script>
+</head>
+<body class="font-inter bg-gray-900 min-h-screen scroll-smooth">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-primary/30 backdrop-blur-md text-white shadow-lg border border-primary/40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300">
+                <div class="w-12 h-12 rounded-full overflow-hidden mr-3 shadow-lg">
+                    <img src="./images/logo.png" alt="Reverclim Logo" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-xl font-bold">Reverclim</h1>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#accueil" class="hover:text-secondary transition-all duration-300 relative group">
+                    Accueil
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#services" class="hover:text-secondary transition-all duration-300 relative group">
+                    Services
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#marques" class="hover:text-secondary transition-all duration-300 relative group">
+                    Marques
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#qualifications" class="hover:text-secondary transition-all duration-300 relative group">
+                    Qualifications
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#realisations" class="hover:text-secondary transition-all duration-300 relative group">
+                    Réalisations
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#contact" class="hover:text-secondary transition-all duration-300 relative group">
+                    Contact
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+            
+            <div class="flex items-center">
+                <a href="tel:+33767585057" class="hidden md:block mr-4 hover:text-secondary transition-all duration-300">
+                    <i class="fas fa-phone mr-2"></i>07 67 58 50 57
+                </a>
+                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 inline-block">
+                    Demander un devis
+                </a>
+                <button id="mobile-menu-button" class="md:hidden ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="md:hidden bg-primary/95 backdrop-blur-md border-t border-white/20 hidden">
+            <div class="container mx-auto px-4 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html#accueil" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-home mr-3"></i>Accueil
+                    </a>
+                    <a href="#services" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-cog mr-3"></i>Services
+                    </a>
+                    <a href="index.html#marques" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-star mr-3"></i>Marques
+                    </a>
+                    <a href="index.html#qualifications" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-certificate mr-3"></i>Qualifications
+                    </a>
+                    <a href="index.html#realisations" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-image mr-3"></i>Réalisations
+                    </a>
+                    <a href="contact.html" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                    <a href="tel:+33767585057" class="text-white hover:text-secondary transition-all duration-300 py-2">
+                        <i class="fas fa-phone mr-3"></i>07 67 58 50 57
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-24 bg-gradient-to-br from-primary via-slate-800 to-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/10 to-transparent"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+                Nos Services
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200">
+                Solutions complètes en climatisation, chauffage et énergies renouvelables
+            </p>
+            <div class="h-1 w-32 bg-gradient-to-r from-secondary via-orange-400 to-secondary mx-auto mb-8"></div>
+            
+            <!-- Navigation rapide -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#climatisation" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
+                    <i class="fas fa-wind mr-2"></i>Climatisation
+                </a>
+                <a href="#pompes-chaleur" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
+                    <i class="fas fa-fire mr-2"></i>Pompes à Chaleur
+                </a>
+                <a href="#photovoltaique" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
+                    <i class="fas fa-solar-panel mr-2"></i>Photovoltaïque
+                </a>
+                <a href="#entretien-depannage" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
+                    <i class="fas fa-tools mr-2"></i>Entretien
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="overflow-hidden scroll-mt-100">
+        
+        <!-- Service 1: Climatisation -->
+        <div id="climatisation" class="relative py-24 scroll-mt-100">
+            <div class="absolute inset-0 bg-primary"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-1"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-10 text-center lg:text-left">
+                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
+                            <div class="bg-gradient-to-br from-secondary to-orange-400 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
+                                <i class="fas fa-wind text-white text-4xl"></i>
+                            </div>
+                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-6xl font-bold text-white leading-tight mb-4">
+                                Climatisation
+                            </h2>
+                            <p class="text-2xl font-light text-secondary">Confort & Performance</p>
+                        </div>
+                        
+                        <p class="text-xl text-gray-200 leading-relaxed">
+                            Solutions complètes de climatisation pour votre confort toute l'année. 
+                            Nous vous accompagnons dans le choix et l'installation d'équipements adaptés à vos besoins.
+                        </p>
+                        
+                        <div class="space-y-4 flex flex-col items-center lg:items-start">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Installation professionnelle</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Équipements performants</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Service après-vente</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Intervention rapide</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <a href="contact.html" class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden inline-block">
+                                <span class="relative z-10">Demander un devis climatisation</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative hidden lg:block">
+                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
+                        <div class="relative">
+                            <img src="./images/fan-7662133_1280.jpg" alt="Climatisation" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Pompes à Chaleur -->
+        <div id="pompes-chaleur" class="relative py-24 scroll-mt-100">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200"></div>
+            <div class="absolute inset-0 bg-gradient-to-l from-transparent via-white/5 to-transparent transform skew-y-1"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-10 text-center lg:text-left">
+                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
+                            <div class="bg-gradient-to-br from-secondary to-orange-600 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
+                                <i class="fas fa-fire text-white text-4xl"></i>
+                            </div>
+                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-6xl font-bold text-primary leading-tight mb-4">
+                                Pompes à Chaleur
+                            </h2>
+                            <p class="text-2xl font-light text-secondary">Écologie & Économies</p>
+                        </div>
+                        
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Solutions de chauffage modernes et écologiques pour votre habitation. 
+                            Découvrez les avantages des pompes à chaleur pour réduire vos factures d'énergie.
+                        </p>
+                        
+                        <div class="space-y-4 flex flex-col items-center lg:items-start">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Chauffage écologique</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Économies d'énergie</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Installation sur mesure</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Aides financières disponibles</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <a href="contact.html" class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden inline-block">
+                                <span class="relative z-10">Demander un devis pompe à chaleur</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative lg:order-1 hidden lg:block">
+                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
+                        <div class="relative">
+                            <img src="./images/unites-exterieures-pompe-a-chaleur.jpeg" alt="Pompe à chaleur" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Photovoltaïque -->
+        <div id="photovoltaique" class="relative py-24 scroll-mt-100">
+            <div class="absolute inset-0 bg-primary"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-1"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-10 text-center lg:text-left">
+                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
+                            <div class="bg-gradient-to-br from-secondary to-orange-400 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
+                                <i class="fas fa-solar-panel text-white text-4xl"></i>
+                            </div>
+                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-6xl font-bold text-white leading-tight mb-4">
+                                Photovoltaïque
+                            </h2>
+                            <p class="text-2xl font-light text-secondary">Énergie Solaire</p>
+                        </div>
+                        
+                        <p class="text-xl text-gray-200 leading-relaxed">
+                            Production d'électricité verte grâce à l'énergie solaire. 
+                            Investissez dans l'avenir avec nos solutions photovoltaïques adaptées à votre logement.
+                        </p>
+                        
+                        <div class="space-y-4 flex flex-col items-center lg:items-start">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Panneaux solaires de qualité</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Installation clé en main</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Suivi de production</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-white">Rentabilité assurée</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <a href="contact.html" class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden inline-block">
+                                <span class="relative z-10">Demander un devis photovoltaïque</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative hidden lg:block">
+                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
+                        <div class="relative">
+                            <img src="./images/solar-energy-862602_1280.jpg" alt="Photovoltaïque" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Entretien & Dépannage -->
+        <div id="entretien-depannage" class="relative py-24 scroll-mt-100">
+            <div class="absolute inset-0 bg-gradient-to-r from-accent to-white"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform skew-y-1"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-10 text-center lg:text-left">
+                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
+                            <div class="bg-gradient-to-br from-secondary to-orange-400 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
+                                <i class="fas fa-tools text-white text-4xl"></i>
+                            </div>
+                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-6xl font-bold text-primary leading-tight mb-4">
+                                Entretien & Dépannage
+                            </h2>
+                            <p class="text-2xl font-light text-secondary">Maintenance & Réparation</p>
+                        </div>
+                        
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Services d'entretien et de dépannage pour maintenir vos équipements en parfait état. 
+                            Notre équipe est disponible pour assurer le bon fonctionnement de vos installations.
+                        </p>
+                        
+                        <div class="space-y-4 flex flex-col items-center lg:items-start">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Maintenance régulière</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Réparations rapides</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Diagnostic complet</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                <span class="text-lg text-primary">Pièces de rechange</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <button class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden">
+                                <span class="relative z-10">Demander un dépannage</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="relative lg:order-1 hidden lg:block">
+                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
+                        <div class="relative">
+                            <img src="./images/2023-09-03.webp" alt="Entretien et dépannage" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="relative py-20 bg-gradient-to-r from-gray-100 to-accent">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                Prêt à commencer votre projet ?
+            </h2>
+            <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                Contactez-nous dès aujourd'hui pour un devis gratuit et personnalisé
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl inline-block">
+                    Demander un devis gratuit
+                </a>
+                <a href="tel:+33767585057" class="bg-white/15 backdrop-blur-sm border border-white/30 text-primary px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/30 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-phone mr-2"></i>07 67 58 50 57
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-primary via-primary/95 to-primary py-12 relative z-10 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo & Description -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-r from-secondary to-orange-400 w-12 h-12 rounded-full flex items-center justify-center mr-3 shadow-lg shadow-secondary/50">
+                            <i class="fas fa-snowflake text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold">Reverclim</h2>
+                    </div>
+                    <p class="text-accent mb-6">Experts en climatisation, pompes à chaleur, entretien et solutions photovoltaïques.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/reverclim/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/reverclim.42/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Nos Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#climatisation" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-snowflake mr-2 text-secondary"></i>Climatisation</a></li>
+                        <li><a href="#pompes-chaleur" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-thermometer-half mr-2 text-secondary"></i>Pompes à chaleur</a></li>
+                        <li><a href="#entretien-depannage" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-tools mr-2 text-secondary"></i>Entretien & Réparation</a></li>
+                        <li><a href="#photovoltaique" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-solar-panel mr-2 text-secondary"></i>Solutions Photovoltaïques</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Mentions Légales -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Mentions Légales</h3>
+                    <ul class="space-y-3">
+                        <li><a href="mentions-legales.html" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Mentions légales</a></li>
+                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">CGV</a></li>
+                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-accent mb-4">Abonnez-vous pour recevoir nos actualités et conseils.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="bg-white/15 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-secondary placeholder:text-accent text-white">
+                        <button class="bg-gradient-to-r from-secondary to-orange-400 px-4 py-2 rounded-r-lg hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-accent">
+                <p>&copy; 2024 Reverclim. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('i');
+
+        mobileMenuButton.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Fermer le menu quand on redimensionne l'écran (passage en desktop)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+</html>
