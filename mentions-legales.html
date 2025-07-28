@@ -64,6 +64,13 @@
         * {
             touch-action: manipulation;
         }
+        
+        /* Correction pour éviter la coupure du titre */
+        .hero-title {
+            line-height: 1.1;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
     </style>
     <script>
         // Script amélioré pour gérer la navigation vers les sections
@@ -200,7 +207,7 @@
     <section class="relative py-24 bg-gradient-to-br from-primary via-slate-800 to-gray-900 text-white overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/10 to-transparent"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent hero-title">
                 Mentions Légales
             </h1>
             <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200">
@@ -370,8 +377,8 @@
                 <!-- Logo & Description -->
                 <div>
                     <div class="flex items-center mb-6">
-                        <div class="bg-gradient-to-r from-secondary to-orange-400 w-12 h-12 rounded-full flex items-center justify-center mr-3 shadow-lg shadow-secondary/50">
-                            <i class="fas fa-snowflake text-white text-xl"></i>
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-3 shadow-lg">
+                            <img src="./images/logo.png" alt="Reverclim Logo" class="w-full h-full object-cover">
                         </div>
                         <h2 class="text-xl font-bold">Reverclim</h2>
                     </div>
