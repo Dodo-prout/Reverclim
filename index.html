@@ -88,6 +88,21 @@
         .gallery-item:hover::after {
             opacity: 1;
         }
+        
+        /* Empêcher le défilement horizontal sur mobile */
+        html {
+            overflow-x: hidden;
+        }
+        
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Empêcher le zoom sur mobile lors du double tap */
+        * {
+            touch-action: manipulation;
+        }
     </style>
 </head>
 <body class="font-inter bg-primary min-h-screen overflow-x-hidden scroll-smooth">
