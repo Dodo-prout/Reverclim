@@ -133,12 +133,42 @@
                 <a href="tel:+33123456789" class="hidden md:block mr-4 hover:text-secondary transition-all duration-300">
                     <i class="fas fa-phone mr-2"></i>07 67 58 50 57
                 </a>
-                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50">
-                    Demander un devis
+                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-3 py-1.5 md:px-6 md:py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 text-sm md:text-base">
+                    <span class="hidden sm:inline">Demander un devis</span>
+                    <span class="sm:hidden">Devis</span>
                 </a>
-                <button class="md:hidden ml-4">
+                <button id="mobile-menu-button" class="md:hidden ml-4">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="md:hidden bg-primary/95 backdrop-blur-md border-t border-white/20 hidden">
+            <div class="container mx-auto px-4 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="#accueil" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-home mr-3"></i>Accueil
+                    </a>
+                    <a href="#services" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-cog mr-3"></i>Services
+                    </a>
+                    <a href="#marques" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-star mr-3"></i>Marques
+                    </a>
+                    <a href="#qualifications" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-certificate mr-3"></i>Qualifications
+                    </a>
+                    <a href="#realisations" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-image mr-3"></i>Réalisations
+                    </a>
+                    <a href="#contact" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                    <a href="tel:+33767585057" class="text-white hover:text-secondary transition-all duration-300 py-2">
+                        <i class="fas fa-phone mr-3"></i>07 67 58 50 57
+                    </a>
+                </nav>
             </div>
         </div>
     </header>
@@ -237,17 +267,17 @@
                 <div class="flex items-center justify-center">
                     <img src="./images/2023-09-03.webp" alt="About Us" class="rounded-lg shadow-lg w-3/4 md:w-2/3 lg:w-1/2 md:ml-24 lg:ml-32">
                 </div>
-                <div class="flex flex-col justify-center">
+                <div class="flex flex-col justify-center text-center md:text-left">
                     <h3 class="text-2xl font-bold text-primary mb-4">Notre Mission</h3>
-                    <p class="text-gray-600 mb-4">
+                    <p class="text-gray-600 mb-8">
                         Avec des années d'expérience, nous nous engageons à fournir des services de qualité, adaptés à vos besoins.
                         Nous mettons un point d'honneur à offrir des solutions innovantes et durables pour améliorer votre confort tout en respectant l'environnement.
                     </p>
                     <h3 class="text-2xl font-bold text-primary mb-4">Nos Valeurs</h3>
-                    <ul class="list-disc list-inside text-gray-600">
-                        <li>Engagement envers la qualité et l'amélioration continue.</li>
-                        <li>Respect de l'environnement et des normes en vigueur.</li>
-                        <li>Proximité et écoute de nos clients.</li>
+                    <ul class="list-disc text-gray-600 text-left list-inside space-y-2">
+                        <li class="whitespace-nowrap">Engagement envers la qualité et l'amélioration continue.</li>
+                        <li class="whitespace-nowrap">Respect de l'environnement et des normes en vigueur.</li>
+                        <li class="whitespace-nowrap">Proximité et écoute de nos clients.</li>
                     </ul>
                 </div>
             </div>
@@ -567,9 +597,48 @@
 
     <!-- Floating Contact Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="tel:+33767585057" class="bg-gradient-to-r from-secondary to-orange-400 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 shadow-secondary/50 animate-pulse">
+        <a href="tel:+33767585057" class="bg-gradient-to-r from-secondary to-orange-400 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 shadow-secondary/50">
             <i class="fas fa-phone text-xl"></i>
         </a>
     </div>
+
+    <script>
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('i');
+
+        mobileMenuButton.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Fermer le menu quand on redimensionne l'écran (passage en desktop)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
 </body>
 </html>
