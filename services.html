@@ -29,12 +29,12 @@
                     },
                     keyframes: {
                         'float': {
-                            '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-10px)' },
                         },
                         'gradientShift': {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '0%': { backgroundPosition: '0% 50%' },
                             '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
                         }
                     },
                     scrollMargin: {
@@ -47,22 +47,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Empêcher le défilement horizontal sur mobile */
-        html {
-            overflow-x: hidden;
-        }
-        
-        body {
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Empêcher le zoom sur mobile lors du double tap */
-        * {
-            touch-action: manipulation;
-        }
-    </style>
     <script>
         // Script amélioré pour gérer la navigation vers les sections
         document.addEventListener('DOMContentLoaded', function() {
@@ -154,9 +138,8 @@
                 <a href="tel:+33767585057" class="hidden md:block mr-4 hover:text-secondary transition-all duration-300">
                     <i class="fas fa-phone mr-2"></i>07 67 58 50 57
                 </a>
-                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-3 py-1.5 md:px-6 md:py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 inline-block text-sm md:text-base">
-                    <span class="hidden sm:inline">Demander un devis</span>
-                    <span class="sm:hidden">Devis</span>
+                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 inline-block">
+                    Demander un devis
                 </a>
                 <button id="mobile-menu-button" class="md:hidden ml-4">
                     <i class="fas fa-bars text-2xl"></i>
@@ -208,16 +191,16 @@
             
             <!-- Navigation rapide -->
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#climatisation" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300 text-sm md:text-base">
+                <a href="#climatisation" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
                     <i class="fas fa-wind mr-2"></i>Climatisation
                 </a>
-                <a href="#pompes-chaleur" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300 text-sm md:text-base">
+                <a href="#pompes-chaleur" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
                     <i class="fas fa-fire mr-2"></i>Pompes à Chaleur
                 </a>
-                <a href="#photovoltaique" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300 text-sm md:text-base">
+                <a href="#photovoltaique" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
                     <i class="fas fa-solar-panel mr-2"></i>Photovoltaïque
                 </a>
-                <a href="#entretien-depannage" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300 text-sm md:text-base">
+                <a href="#entretien-depannage" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:border-secondary transition-all duration-300">
                     <i class="fas fa-tools mr-2"></i>Entretien
                 </a>
             </div>
@@ -235,56 +218,59 @@
             <div class="container mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div class="space-y-10 text-center lg:text-left">
-                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
-                            <div class="bg-gradient-to-br from-secondary to-orange-400 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
-                                <i class="fas fa-wind text-white text-4xl"></i>
-                            </div>
-                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
-                        </div>
-                        
                         <div>
-                            <h2 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                                <i class="fas fa-wind text-secondary mr-4"></i>
                                 Climatisation
                             </h2>
-                            <p class="text-2xl font-light text-secondary">Confort & Performance</p>
+                            <p class="text-xl text-gray-200 mb-8">
+                                Installation et maintenance de systèmes de climatisation performants pour votre confort optimal toute l'année.
+                            </p>
+                            <div class="h-1 w-20 bg-gradient-to-r from-secondary to-orange-400 lg:mx-0 mx-auto mb-8"></div>
                         </div>
                         
-                        <p class="text-xl text-gray-200 leading-relaxed">
-                            Solutions complètes de climatisation pour votre confort toute l'année. 
-                            Nous vous accompagnons dans le choix et l'installation d'équipements adaptés à vos besoins.
-                        </p>
-                        
-                        <div class="space-y-4 flex flex-col items-center lg:items-start">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Installation professionnelle</span>
+                        <!-- Caractéristiques principales -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-home text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Résidentiel</h3>
+                                <p class="text-gray-200 text-sm">Solutions adaptées aux maisons et appartements</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Équipements performants</span>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-building text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Commercial</h3>
+                                <p class="text-gray-200 text-sm">Équipements professionnels haute performance</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Service après-vente</span>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-tools text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Installation</h3>
+                                <p class="text-gray-200 text-sm">Pose complète par nos techniciens certifiés</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Intervention rapide</span>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-cog text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Maintenance</h3>
+                                <p class="text-gray-200 text-sm">Contrats d'entretien préventif</p>
                             </div>
                         </div>
                         
-                        <div class="pt-6">
-                            <a href="contact.html" class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden inline-block">
-                                <span class="relative z-10">Demander un devis climatisation</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- CTA -->
+                        <div class="flex flex-col sm:flex-row gap-4 lg:justify-start justify-center">
+                            <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-8 py-3 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center">
+                                Demander un devis
+                            </a>
+                            <a href="tel:+33767585057" class="bg-white/15 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-primary transition-all duration-300 text-center">
+                                <i class="fas fa-phone mr-2"></i>07 67 58 50 57
                             </a>
                         </div>
                     </div>
                     
                     <div class="relative hidden lg:block">
-                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
-                        <div class="relative">
-                            <img src="./images/fan-7662133_1280.jpg" alt="Climatisation" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        <img src="./images/fan-7662133_1280.jpg" alt="Climatisation" class="rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-secondary to-orange-400 rounded-xl p-6 shadow-xl">
+                            <div class="text-white text-center">
+                                <div class="text-2xl font-bold">15+</div>
+                                <div class="text-sm">Années d'expérience</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,56 +285,72 @@
             <div class="container mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div class="space-y-10 text-center lg:text-left">
-                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
-                            <div class="bg-gradient-to-br from-secondary to-orange-600 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
-                                <i class="fas fa-fire text-white text-4xl"></i>
-                            </div>
-                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
-                        </div>
-                        
                         <div>
-                            <h2 class="text-4xl md:text-6xl font-bold text-primary leading-tight mb-4">
+                            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                                <i class="fas fa-fire text-secondary mr-4"></i>
                                 Pompes à Chaleur
                             </h2>
-                            <p class="text-2xl font-light text-secondary">Écologie & Économies</p>
+                            <p class="text-xl text-gray-700 mb-8">
+                                Solutions de chauffage écologiques et économiques. Profitez des aides financières pour votre transition énergétique.
+                            </p>
+                            <div class="h-1 w-20 bg-gradient-to-r from-secondary to-orange-400 lg:mx-0 mx-auto mb-8"></div>
                         </div>
                         
-                        <p class="text-xl text-gray-700 leading-relaxed">
-                            Solutions de chauffage modernes et écologiques pour votre habitation. 
-                            Découvrez les avantages des pompes à chaleur pour réduire vos factures d'énergie.
-                        </p>
-                        
-                        <div class="space-y-4 flex flex-col items-center lg:items-start">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Chauffage écologique</span>
+                        <!-- Types de PAC -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-wind text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Air/Air</h3>
+                                <p class="text-gray-600 text-sm">Climatisation réversible haute performance</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Économies d'énergie</span>
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-tint text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Air/Eau</h3>
+                                <p class="text-gray-600 text-sm">Chauffage et eau chaude sanitaire</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Installation sur mesure</span>
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-layer-group text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Géothermie</h3>
+                                <p class="text-gray-600 text-sm">Solution ultra performante et durable</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Aides financières disponibles</span>
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-euro-sign text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Aides financières</h3>
+                                <p class="text-gray-600 text-sm">MaPrimeRénov', CEE, TVA réduite</p>
                             </div>
                         </div>
                         
-                        <div class="pt-6">
-                            <a href="contact.html" class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden inline-block">
-                                <span class="relative z-10">Demander un devis pompe à chaleur</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </a>
+                        <!-- Processus d'installation -->
+                        <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200">
+                            <h3 class="font-bold text-primary mb-4 text-center">Notre processus d'installation</h3>
+                            <div class="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4">
+                                <div class="text-center flex-1">
+                                    <div class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+                                    <p class="text-sm text-gray-600">Étude thermique</p>
+                                </div>
+                                <div class="text-center flex-1">
+                                    <div class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+                                    <p class="text-sm text-gray-600">Devis personnalisé</p>
+                                </div>
+                                <div class="text-center flex-1">
+                                    <div class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+                                    <p class="text-sm text-gray-600">Installation certifiée</p>
+                                </div>
+                                <div class="text-center flex-1">
+                                    <div class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">4</div>
+                                    <p class="text-sm text-gray-600">Mise en service</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="relative lg:order-1 hidden lg:block">
-                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
-                        <div class="relative">
-                            <img src="./images/unites-exterieures-pompe-a-chaleur.jpeg" alt="Pompe à chaleur" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        <img src="./images/unites-exterieures-pompe-a-chaleur.jpeg" alt="Pompes à chaleur" class="rounded-2xl shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-secondary to-orange-400 rounded-xl p-6 shadow-xl">
+                            <div class="text-white text-center">
+                                <div class="text-2xl font-bold">RGE</div>
+                                <div class="text-sm">Certifié QualiPAC</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -363,56 +365,62 @@
             <div class="container mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div class="space-y-10 text-center lg:text-left">
-                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
-                            <div class="bg-gradient-to-br from-secondary to-orange-400 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
-                                <i class="fas fa-solar-panel text-white text-4xl"></i>
-                            </div>
-                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
-                        </div>
-                        
                         <div>
-                            <h2 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                                <i class="fas fa-solar-panel text-secondary mr-4"></i>
                                 Photovoltaïque
                             </h2>
-                            <p class="text-2xl font-light text-secondary">Énergie Solaire</p>
+                            <p class="text-xl text-gray-200 mb-8">
+                                Produisez votre propre électricité et réduisez vos factures. Installation de panneaux solaires haute performance avec garantie constructeur.
+                            </p>
+                            <div class="h-1 w-20 bg-gradient-to-r from-secondary to-orange-400 lg:mx-0 mx-auto mb-8"></div>
                         </div>
                         
-                        <p class="text-xl text-gray-200 leading-relaxed">
-                            Production d'électricité verte grâce à l'énergie solaire. 
-                            Investissez dans l'avenir avec nos solutions photovoltaïques adaptées à votre logement.
-                        </p>
-                        
-                        <div class="space-y-4 flex flex-col items-center lg:items-start">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Panneaux solaires de qualité</span>
+                        <!-- Avantages du photovoltaïque -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-chart-line text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Économies</h3>
+                                <p class="text-gray-200 text-sm">Jusqu'à 70% de réduction sur vos factures</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Installation clé en main</span>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-leaf text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Écologique</h3>
+                                <p class="text-gray-200 text-sm">Énergie propre et renouvelable</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Suivi de production</span>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-home text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Valorisation</h3>
+                                <p class="text-gray-200 text-sm">Augmente la valeur de votre bien</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-white">Rentabilité assurée</span>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                                <i class="fas fa-shield-alt text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-white mb-2">Garantie 25 ans</h3>
+                                <p class="text-gray-200 text-sm">Performance garantie par les constructeurs</p>
                             </div>
                         </div>
                         
-                        <div class="pt-6">
-                            <a href="contact.html" class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden inline-block">
-                                <span class="relative z-10">Demander un devis photovoltaïque</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </a>
+                        <!-- Marques partenaires -->
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                            <h3 class="font-bold text-white mb-4 text-center">Nos marques partenaires</h3>
+                            <div class="flex justify-center items-center space-x-8 opacity-80">
+                                <img src="./images/sunpower.png" alt="SunPower" class="h-8 filter brightness-0 invert">
+                                <span class="text-white font-semibold">SunPower</span>
+                                <span class="text-white">•</span>
+                                <span class="text-white font-semibold">Panasonic</span>
+                                <span class="text-white">•</span>
+                                <span class="text-white font-semibold">LG</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="relative hidden lg:block">
-                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
-                        <div class="relative">
-                            <img src="./images/solar-energy-862602_1280.jpg" alt="Photovoltaïque" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        <img src="./images/solar-energy-862602_1280.jpg" alt="Panneaux solaires" class="rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-secondary to-orange-400 rounded-xl p-6 shadow-xl">
+                            <div class="text-white text-center">
+                                <div class="text-2xl font-bold">100+</div>
+                                <div class="text-sm">Installations réalisées</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -427,56 +435,77 @@
             <div class="container mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div class="space-y-10 text-center lg:text-left">
-                        <div class="flex items-center space-x-6 justify-center lg:justify-start">
-                            <div class="bg-gradient-to-br from-secondary to-orange-400 w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl animate-float">
-                                <i class="fas fa-tools text-white text-4xl"></i>
-                            </div>
-                            <div class="h-px bg-gradient-to-r from-secondary via-orange-400 to-transparent flex-1 hidden lg:block"></div>
-                        </div>
-                        
                         <div>
-                            <h2 class="text-4xl md:text-6xl font-bold text-primary leading-tight mb-4">
+                            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                                <i class="fas fa-tools text-secondary mr-4"></i>
                                 Entretien & Dépannage
                             </h2>
-                            <p class="text-2xl font-light text-secondary">Maintenance & Réparation</p>
+                            <p class="text-xl text-gray-700 mb-8">
+                                Maintenance préventive et dépannage rapide pour tous vos équipements. Intervention sous 24h en cas d'urgence.
+                            </p>
+                            <div class="h-1 w-20 bg-gradient-to-r from-secondary to-orange-400 lg:mx-0 mx-auto mb-8"></div>
                         </div>
                         
-                        <p class="text-xl text-gray-700 leading-relaxed">
-                            Services d'entretien et de dépannage pour maintenir vos équipements en parfait état. 
-                            Notre équipe est disponible pour assurer le bon fonctionnement de vos installations.
-                        </p>
-                        
-                        <div class="space-y-4 flex flex-col items-center lg:items-start">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Maintenance régulière</span>
+                        <!-- Services d'entretien -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-calendar-check text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Contrats d'entretien</h3>
+                                <p class="text-gray-600 text-sm">Maintenance préventive programmée</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Réparations rapides</span>
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-wrench text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Dépannage rapide</h3>
+                                <p class="text-gray-600 text-sm">Intervention sous 24h</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Diagnostic complet</span>
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-microscope text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Diagnostic complet</h3>
+                                <p class="text-gray-600 text-sm">Analyse précise des dysfonctionnements</p>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                <span class="text-lg text-primary">Pièces de rechange</span>
+                            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                <i class="fas fa-certificate text-secondary text-2xl mb-3"></i>
+                                <h3 class="font-bold text-primary mb-2">Pièces d'origine</h3>
+                                <p class="text-gray-600 text-sm">Garantie constructeur respectée</p>
                             </div>
                         </div>
                         
-                        <div class="pt-6">
-                            <button class="group relative bg-gradient-to-r from-secondary to-orange-400 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden">
-                                <span class="relative z-10">Demander un dépannage</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </button>
+                        <!-- Contact urgence -->
+                        <div class="bg-gradient-to-r from-red-500 to-red-600 rounded-xl p-6 text-white text-center">
+                            <i class="fas fa-phone text-2xl mb-3"></i>
+                            <h3 class="font-bold mb-2">Urgence 7j/7</h3>
+                            <p class="mb-4">Dépannage en urgence, week-ends et jours fériés</p>
+                            <a href="tel:+33767585057" class="bg-white text-red-600 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300">
+                                07 67 58 50 57
+                            </a>
                         </div>
                     </div>
                     
                     <div class="relative lg:order-1 hidden lg:block">
-                        <div class="absolute -inset-6 bg-gradient-to-r from-secondary/30 via-orange-400/30 to-secondary/30 rounded-3xl blur-2xl"></div>
-                        <div class="relative">
-                            <img src="./images/2023-09-03.webp" alt="Entretien et dépannage" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover">
+                        <div class="bg-white rounded-2xl p-8 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                            <h3 class="text-xl font-bold text-primary mb-6 text-center">Que comprend notre entretien ?</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-secondary mr-3"></i>
+                                    <span class="text-gray-700">Nettoyage des filtres et unités</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-secondary mr-3"></i>
+                                    <span class="text-gray-700">Vérification des connexions électriques</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-secondary mr-3"></i>
+                                    <span class="text-gray-700">Contrôle des niveaux de réfrigérant</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-secondary mr-3"></i>
+                                    <span class="text-gray-700">Test de performance</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-secondary mr-3"></i>
+                                    <span class="text-gray-700">Rapport détaillé d'intervention</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -513,18 +542,21 @@
                 <!-- Logo & Description -->
                 <div>
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-3 shadow-lg">
-                            <img src="./images/logo.png" alt="Reverclim Logo" class="w-full h-full object-cover">
+                        <div class="bg-gradient-to-r from-secondary to-orange-400 w-12 h-12 rounded-full flex items-center justify-center mr-3 shadow-lg shadow-secondary/50">
+                            <i class="fas fa-wind text-white text-xl"></i>
                         </div>
                         <h2 class="text-xl font-bold">Reverclim</h2>
                     </div>
                     <p class="text-accent mb-6">Experts en climatisation, pompes à chaleur, entretien et solutions photovoltaïques.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/reverclim/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
                         </a>
-                        <a href="https://www.instagram.com/reverclim.42/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
                     </div>
                 </div>
@@ -533,10 +565,10 @@
                 <div>
                     <h3 class="text-lg font-bold mb-6">Nos Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="#climatisation" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-snowflake mr-2 text-secondary"></i>Climatisation</a></li>
-                        <li><a href="#pompes-chaleur" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-thermometer-half mr-2 text-secondary"></i>Pompes à chaleur</a></li>
-                        <li><a href="#entretien-depannage" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-tools mr-2 text-secondary"></i>Entretien & Réparation</a></li>
-                        <li><a href="#photovoltaique" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-solar-panel mr-2 text-secondary"></i>Solutions Photovoltaïques</a></li>
+                        <li><a href="#climatisation" class="text-accent hover:text-secondary transition-colors duration-300">Climatisation</a></li>
+                        <li><a href="#pompes-chaleur" class="text-accent hover:text-secondary transition-colors duration-300">Pompes à chaleur</a></li>
+                        <li><a href="#photovoltaique" class="text-accent hover:text-secondary transition-colors duration-300">Photovoltaïque</a></li>
+                        <li><a href="#entretien-depannage" class="text-accent hover:text-secondary transition-colors duration-300">Entretien & Dépannage</a></li>
                     </ul>
                 </div>
                 
@@ -544,10 +576,10 @@
                 <div>
                     <h3 class="text-lg font-bold mb-6">Mentions Légales</h3>
                     <ul class="space-y-3">
-                        <li><a href="mentions-legales.html" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Mentions légales</a></li>
-                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Politique de confidentialité</a></li>
-                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">CGV</a></li>
-                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Cookies</a></li>
+                        <li><a href="mentions-legales.html#informations-generales" class="text-accent hover:text-secondary transition-colors duration-300">Informations générales</a></li>
+                        <li><a href="mentions-legales.html#politique-confidentialite" class="text-accent hover:text-secondary transition-colors duration-300">Politique de confidentialité</a></li>
+                        <li><a href="mentions-legales.html#cookies" class="text-accent hover:text-secondary transition-colors duration-300">Cookies</a></li>
+                        <li><a href="mentions-legales.html#cgv" class="text-accent hover:text-secondary transition-colors duration-300">CGV</a></li>
                     </ul>
                 </div>
                 
@@ -556,8 +588,8 @@
                     <h3 class="text-lg font-bold mb-6">Newsletter</h3>
                     <p class="text-accent mb-4">Abonnez-vous pour recevoir nos actualités et conseils.</p>
                     <form class="flex">
-                        <input type="email" placeholder="Votre email" class="bg-white/15 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-secondary placeholder:text-accent text-white">
-                        <button class="bg-gradient-to-r from-secondary to-orange-400 px-4 py-2 rounded-r-lg hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50">
+                        <input type="email" placeholder="Votre email" class="flex-1 px-4 py-2 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <button type="submit" class="bg-secondary hover:bg-orange-600 px-4 py-2 rounded-r-lg transition-colors duration-300">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>

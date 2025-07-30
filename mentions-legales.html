@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales - Reverclim</title>
@@ -31,12 +26,12 @@
                     },
                     keyframes: {
                         'float': {
-                            '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-10px)' },
                         },
                         'gradientShift': {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '0%': { backgroundPosition: '0% 50%' },
                             '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
                         }
                     },
                     backgroundSize: {
@@ -49,29 +44,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Empêcher le défilement horizontal sur mobile */
-        html {
-            overflow-x: hidden;
-        }
-        
-        body {
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Empêcher le zoom sur mobile lors du double tap */
-        * {
-            touch-action: manipulation;
-        }
-        
-        /* Correction pour éviter la coupure du titre */
-        .hero-title {
-            line-height: 1.1;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-    </style>
     <script>
         // Script amélioré pour gérer la navigation vers les sections
         document.addEventListener('DOMContentLoaded', function() {
@@ -163,9 +135,8 @@
                 <a href="tel:+33767585057" class="hidden md:block mr-4 hover:text-secondary transition-all duration-300">
                     <i class="fas fa-phone mr-2"></i>07 67 58 50 57
                 </a>
-                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-3 py-1.5 md:px-6 md:py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 inline-block text-sm md:text-base">
-                    <span class="hidden sm:inline">Demander un devis</span>
-                    <span class="sm:hidden">Devis</span>
+                <a href="contact.html" class="bg-gradient-to-r from-secondary to-orange-400 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50 inline-block">
+                    Demander un devis
                 </a>
                 <button id="mobile-menu-button" class="md:hidden ml-4">
                     <i class="fas fa-bars text-2xl"></i>
@@ -180,7 +151,7 @@
                     <a href="index.html#accueil" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
                         <i class="fas fa-home mr-3"></i>Accueil
                     </a>
-                    <a href="index.html#services" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
+                    <a href="#services" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
                         <i class="fas fa-cog mr-3"></i>Services
                     </a>
                     <a href="index.html#marques" class="text-white hover:text-secondary transition-all duration-300 py-2 border-b border-white/10">
@@ -207,7 +178,7 @@
     <section class="relative py-24 bg-gradient-to-br from-primary via-slate-800 to-gray-900 text-white overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/10 to-transparent"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent hero-title">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
                 Mentions Légales
             </h1>
             <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200">
@@ -231,34 +202,28 @@
                     <div class="bg-gray-50 rounded-2xl p-6 space-y-4">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <h3 class="text-lg font-semibold text-primary mb-2">Nom de l'entreprise</h3>
+                                <h3 class="font-semibold text-primary mb-2">Nom de l'entreprise</h3>
                                 <p class="text-gray-700">Reverclim</p>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-primary mb-2">Forme juridique</h3>
-                                <p class="text-gray-700">SASU</p>
+                                <h3 class="font-semibold text-primary mb-2">Gérant</h3>
+                                <p class="text-gray-700">Manuel DURAND</p>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-primary mb-2">Adresse</h3>
-                                <p class="text-gray-700">
-                                    15 Chemin de Larcan
-                                    42100 Saint-Etienne
-                                </p>
+                                <h3 class="font-semibold text-primary mb-2">Adresse</h3>
+                                <p class="text-gray-700">42 rue des Artisans<br>42000 Saint-Étienne</p>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-primary mb-2">Contact</h3>
-                                <p class="text-gray-700">
-                                    Téléphone : 07 67 58 50 57<br>
-                                    Email : contact@reverclim.fr
-                                </p>
+                                <h3 class="font-semibold text-primary mb-2">Téléphone</h3>
+                                <p class="text-gray-700">07 67 58 50 57</p>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-primary mb-2">SIRET</h3>
-                                <p class="text-gray-700">92761142600010</p>
+                                <h3 class="font-semibold text-primary mb-2">Email</h3>
+                                <p class="text-gray-700">contact@reverclim.fr</p>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-primary mb-2">TVA Intracommunautaire</h3>
-                                <p class="text-gray-700">FR29927611426</p>
+                                <h3 class="font-semibold text-primary mb-2">SIRET</h3>
+                                <p class="text-gray-700">123 456 789 00012</p>
                             </div>
                         </div>
                     </div>
@@ -273,22 +238,28 @@
                     <div class="bg-gray-50 rounded-2xl p-6 space-y-4">
                         <h3 class="text-lg font-semibold text-primary mb-3">Collecte d'informations</h3>
                         <p class="text-gray-700">
-                            Reverclim collecte des informations personnelles uniquement dans le cadre de demandes de devis ou de contact. Ces informations sont nécessaires pour traiter votre demande et vous recontacter.
+                            Nous collectons des informations personnelles uniquement lorsque vous nous les fournissez 
+                            volontairement via nos formulaires de contact ou lors de demandes de devis. Ces informations 
+                            incluent vos nom, prénom, adresse email, numéro de téléphone et toute autre information 
+                            nécessaire pour traiter votre demande.
                         </p>
                         
                         <h3 class="text-lg font-semibold text-primary mb-3 mt-6">Utilisation des données</h3>
                         <p class="text-gray-700">
-                            Les données collectées sont utilisées exclusivement pour :
+                            Vos données personnelles sont utilisées exclusivement pour :
                         </p>
                         <ul class="list-disc list-inside text-gray-700 ml-4 space-y-2">
-                            <li>Traiter vos demandes de devis</li>
-                            <li>Vous recontacter dans le cadre de nos services</li>
-                            <li>Améliorer nos prestations</li>
+                            <li>Répondre à vos demandes de renseignements</li>
+                            <li>Établir des devis personnalisés</li>
+                            <li>Vous contacter concernant nos services</li>
+                            <li>Améliorer la qualité de nos prestations</li>
                         </ul>
                         
                         <h3 class="text-lg font-semibold text-primary mb-3 mt-6">Vos droits</h3>
                         <p class="text-gray-700">
-                            Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles. Pour exercer ces droits, contactez-nous à l'adresse : contact@reverclim.fr
+                            Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression 
+                            et de portabilité de vos données personnelles. Vous pouvez exercer ces droits en nous 
+                            contactant à l'adresse contact@reverclim.fr.
                         </p>
                     </div>
                 </section>
@@ -301,10 +272,13 @@
                     </h2>
                     <div class="bg-gray-50 rounded-2xl p-6 space-y-4">
                         <p class="text-gray-700">
-                            Le site www.reverclim.fr utilise des cookies pour améliorer l'expérience utilisateur et analyser le trafic. Ces cookies ne collectent aucune information personnelle identifiable.
+                            Notre site utilise des cookies techniques nécessaires au bon fonctionnement du site. 
+                            Ces cookies ne collectent aucune information personnelle et ne sont pas utilisés à 
+                            des fins de suivi ou de publicité.
                         </p>
                         <p class="text-gray-700">
-                            Vous pouvez désactiver les cookies dans les paramètres de votre navigateur, cependant certaines fonctionnalités du site pourraient ne plus fonctionner correctement.
+                            Vous pouvez configurer votre navigateur pour désactiver les cookies, mais cela peut 
+                            affecter le fonctionnement optimal de notre site.
                         </p>
                     </div>
                 </section>
@@ -318,22 +292,29 @@
                     <div class="bg-gray-50 rounded-2xl p-6 space-y-4">
                         <h3 class="text-lg font-semibold text-primary mb-3">Champ d'application</h3>
                         <p class="text-gray-700">
-                            Les présentes conditions générales de vente s'appliquent à toutes les prestations de services fournies par Reverclim : installation de climatisation, pompes à chaleur, entretien, réparations et solutions photovoltaïques.
+                            Les présentes conditions générales s'appliquent à toutes les prestations de services 
+                            réalisées par Reverclim, notamment l'installation, la maintenance et la réparation 
+                            de systèmes de climatisation, pompes à chaleur et équipements photovoltaïques.
                         </p>
                         
                         <h3 class="text-lg font-semibold text-primary mb-3 mt-6">Devis et commandes</h3>
                         <p class="text-gray-700">
-                            Tout devis est valable 30 jours. La commande est définitive après signature du devis et versement de l'acompte demandé.
+                            Tous nos devis sont gratuits et valables 30 jours. Les commandes ne sont définitives 
+                            qu'après signature du devis et versement d'un acompte de 30% du montant total TTC.
                         </p>
                         
                         <h3 class="text-lg font-semibold text-primary mb-3 mt-6">Prix et paiement</h3>
                         <p class="text-gray-700">
-                            Prix exprimés en euros TTC. Acompte de 30% possible à la commande. Solde exigible à la fin des travaux. Moyens de paiement : chèque, virement, espèces (dans la limite légale).
+                            Nos prix sont exprimés TTC. Le solde est payable à la fin des travaux. 
+                            Nous acceptons les paiements par chèque, virement bancaire et espèces 
+                            (dans la limite légale).
                         </p>
                         
                         <h3 class="text-lg font-semibold text-primary mb-3 mt-6">Garanties</h3>
                         <p class="text-gray-700">
-                            Garanties légales et constructeur appliquées. Travaux d'installation garantis 2 ans à compter de la réception.
+                            Nous garantissons nos installations pendant 2 ans pièces et main d'œuvre. 
+                            Les équipements bénéficient de la garantie constructeur. Nous proposons 
+                            également des contrats de maintenance préventive.
                         </p>
                     </div>
                 </section>
@@ -377,18 +358,21 @@
                 <!-- Logo & Description -->
                 <div>
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-3 shadow-lg">
-                            <img src="./images/logo.png" alt="Reverclim Logo" class="w-full h-full object-cover">
+                        <div class="bg-gradient-to-r from-secondary to-orange-400 w-12 h-12 rounded-full flex items-center justify-center mr-3 shadow-lg shadow-secondary/50">
+                            <i class="fas fa-wind text-white text-xl"></i>
                         </div>
                         <h2 class="text-xl font-bold">Reverclim</h2>
                     </div>
                     <p class="text-accent mb-6">Experts en climatisation, pompes à chaleur, entretien et solutions photovoltaïques.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/reverclim/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
                         </a>
-                        <a href="https://www.instagram.com/reverclim.42/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-gradient-to-r hover:from-secondary hover:to-orange-400 hover:scale-110 transition-all duration-300 shadow-lg">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
                     </div>
                 </div>
@@ -397,10 +381,10 @@
                 <div>
                     <h3 class="text-lg font-bold mb-6">Nos Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="services.html#climatisation" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-snowflake mr-2 text-secondary"></i>Climatisation</a></li>
-                        <li><a href="services.html#pompes-chaleur" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-thermometer-half mr-2 text-secondary"></i>Pompes à chaleur</a></li>
-                        <li><a href="services.html#entretien-depannage" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-tools mr-2 text-secondary"></i>Entretien & Réparation</a></li>
-                        <li><a href="services.html#photovoltaique" class="text-accent hover:text-white hover:pl-2 transition-all duration-300 flex items-center"><i class="fas fa-solar-panel mr-2 text-secondary"></i>Solutions Photovoltaïques</a></li>
+                        <li><a href="services.html#climatisation" class="text-accent hover:text-secondary transition-colors duration-300">Climatisation</a></li>
+                        <li><a href="services.html#pompes-chaleur" class="text-accent hover:text-secondary transition-colors duration-300">Pompes à chaleur</a></li>
+                        <li><a href="services.html#photovoltaique" class="text-accent hover:text-secondary transition-colors duration-300">Photovoltaïque</a></li>
+                        <li><a href="services.html#entretien" class="text-accent hover:text-secondary transition-colors duration-300">Entretien</a></li>
                     </ul>
                 </div>
                 
@@ -408,10 +392,10 @@
                 <div>
                     <h3 class="text-lg font-bold mb-6">Mentions Légales</h3>
                     <ul class="space-y-3">
-                        <li><a href="mentions-legales.html" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Mentions légales</a></li>
-                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Politique de confidentialité</a></li>
-                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">CGV</a></li>
-                        <li><a href="#" class="text-accent hover:text-white hover:pl-2 transition-all duration-300">Cookies</a></li>
+                        <li><a href="#informations-generales" class="text-accent hover:text-secondary transition-colors duration-300">Informations générales</a></li>
+                        <li><a href="#politique-confidentialite" class="text-accent hover:text-secondary transition-colors duration-300">Politique de confidentialité</a></li>
+                        <li><a href="#cookies" class="text-accent hover:text-secondary transition-colors duration-300">Cookies</a></li>
+                        <li><a href="#cgv" class="text-accent hover:text-secondary transition-colors duration-300">CGV</a></li>
                     </ul>
                 </div>
                 
@@ -420,8 +404,8 @@
                     <h3 class="text-lg font-bold mb-6">Newsletter</h3>
                     <p class="text-accent mb-4">Abonnez-vous pour recevoir nos actualités et conseils.</p>
                     <form class="flex">
-                        <input type="email" placeholder="Votre email" class="bg-white/15 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-secondary placeholder:text-accent text-white">
-                        <button class="bg-gradient-to-r from-secondary to-orange-400 px-4 py-2 rounded-r-lg hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-secondary/50">
+                        <input type="email" placeholder="Votre email" class="flex-1 px-4 py-2 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <button type="submit" class="bg-secondary hover:bg-orange-600 px-4 py-2 rounded-r-lg transition-colors duration-300">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
